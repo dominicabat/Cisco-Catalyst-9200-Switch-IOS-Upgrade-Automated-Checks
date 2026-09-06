@@ -1,11 +1,13 @@
 # Cisco-Catalyst-9200-Switch-IOS-Upgrade-Automated-Checks
 Automating Preliminary work, Prechecks, and Postchecks when doing IOS Upgrades to 9200/9300 Catalyst Switches
 
+
 ## Overview
 Automating
 - the preliminary work such as configuring device to act as an SCP server, removing inactive image files in flash:
 - the prechecks, backup the config, get the network state, and check the image's md5 and sha512 hash
 - the postchecks, network state after the config and ensure the device operates as intended post-upgrade.
+
 
 ## Usage
 ### Input the data in **device_list.csv**. _Hostname,IP_ format. You can define multiple devices here to speed up the work. 
@@ -13,6 +15,7 @@ Automating
 hostname_001,10.1.1.1
 hostname_002,10.1.1.2
 ```
+
 
 ### Read the release notes before deciding which IOS version to proceed. Common considerations are upgrade path and specific ROMMON version before proceeding to jump from 1 version to another. 
 - [9200 release notes](https://www.cisco.com/c/en/us/support/switches/catalyst-9200-r-series-switches/products-release-notes-list.html)
@@ -56,6 +59,7 @@ py Pre-Work.py
 scp -O ios_filename username@<ip_address_of_the_device>:ios_filename
 ```
 
+
 ### Input the list of commands that you want to check in the switch before proceeding to upgrade in **commands_file_check_upgrade.txt**
 ```
 show ip route
@@ -71,6 +75,7 @@ sh cdp neigh
 sh clock
 ```
 
+
 ### Manually upgrade the Switch
 - [9200 upgrade process - INSTALL mode](https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9200-series-switches/222282-upgrading-catalyst-9200-switches.html#toc-hId--1726690856)
 - [9300 upgrade process - INSTALL mode](https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/222280-upgrading-catalyst-9300-switches.html#toc-hId--1922252130)
@@ -85,6 +90,7 @@ install add file flash:<file_name>.bin activate commit
 - The solution that I'm thinking is to set the read_timeout parameter to more than 10 mins or 600 seconds
 - I was contemplating in an Engineering decision whether it would be practical to automate the actual upgrade process or stick to manual.
 - I do plan to automate it once I have a test case, but it would upgrade the switches 1 by 1 instead of all at the same time.
+
 
 
 ### Run the Postcheck_Upgrade.py to do the postchecks once upgrade is done
