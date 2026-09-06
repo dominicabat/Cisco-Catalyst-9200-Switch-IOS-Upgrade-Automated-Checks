@@ -16,6 +16,12 @@ hostname_001,10.1.1.1
 hostname_002,10.1.1.2
 ```
 
+### Store your creds in the file
+```
+user
+pass
+```
+
 
 ### Read the release notes before deciding which IOS version to proceed. Common considerations are upgrade path and specific ROMMON version before proceeding to jump from 1 version to another. 
 - [9200 release notes](https://www.cisco.com/c/en/us/support/switches/catalyst-9200-r-series-switches/products-release-notes-list.html)
