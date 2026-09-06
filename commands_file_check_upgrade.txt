@@ -1,0 +1,11 @@
+show ip route
+show ip arp
+show mac add
+dir bootflash:
+show lic sum
+sh version
+sh platform
+show boot
+show switch
+sh cdp neigh
+sh clock

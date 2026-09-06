@@ -1,0 +1,3 @@
+dir flash:
+sh run | i scp server
+install remove inactive
