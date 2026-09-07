@@ -7,7 +7,7 @@ from netmiko.exceptions import NetmikoTimeoutException, NetmikoAuthenticationExc
 import pprint
 import csv
 from datetime import datetime
-from global_variables import target_image, target_version, md5_checksum, sha512_checksum
+from global_variables import *
 
 
 #stores credential in variable defined in creds.txt file
